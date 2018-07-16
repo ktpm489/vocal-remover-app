@@ -8,6 +8,11 @@ html, body {
 	margin: 0;
 	padding: 0;
 	color: #616161;
+	background: #fafafa;
+}
+
+*:focus {
+	outline: none;
 }
 
 a:hover, a:visited, a:link, a:active {
@@ -17,15 +22,11 @@ a:hover, a:visited, a:link, a:active {
 
 a:hover, a:visited, a:link, a:active {
 	text-decoration: none;
-	fill: #4FC3F7
+	fill: #fff;
 }
 
 a svg {
 	fill: black;
-}
-
-svg:hover {
-	fill: #4FC3F7
 }
 
 div#root {

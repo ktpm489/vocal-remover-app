@@ -1,11 +1,10 @@
 const commonPaths = require("./common-paths")
-
 const webpack = require("webpack")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 
 const config = {
 	entry: {
-		vendor: ["@material-ui/core"]
+		vendor: ["@material-ui/core", "babel-polyfill"]
 	},
 	output: {
 		path: commonPaths.outputPath,
@@ -16,7 +15,14 @@ const config = {
 			{
 				test: /\.(js)$/,
 				exclude: /node_modules/,
-				use: ["babel-loader"]
+				use: {
+					loader: "babel-loader",
+					options: {
+						plugins: [
+							"babel-plugin-redux-saga"
+						]
+					}
+				}
 			}
 		]
 	},
@@ -27,10 +33,15 @@ const config = {
 					chunks: "initial",
 					test: "vendor",
 					name: "vendor",
-					enforce: true
+					enforce: true,
+					chunks: 'all'
 				}
 			}
 		}
+	},
+	performance: {
+		maxEntrypointSize: 512000,
+		maxAssetSize: 512000
 	},
 	plugins: [
 		new HtmlWebpackPlugin({

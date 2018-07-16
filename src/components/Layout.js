@@ -1,14 +1,33 @@
 import React from "react"
-import { Link } from "react-router-dom"
-import Header from "./Header"
-import { pullRight, h1 } from "./layout.css"
+import Grid from "@material-ui/core/Grid"
+import { withStyles } from "@material-ui/core/styles"
 
-const Layout = ({children}) => {
+const styles = theme => ({
+	root: {
+		paddingTop: theme.spacing.unit * 4,
+		paddingBottom: theme.spacing.unit * 4
+	}
+})
+
+const Layout = ({classes, children}) => {
 	return (
-		<div>
-			{ children }
-		</div>
+		<Grid container>
+			<Grid item xs={ 1 } sm={ 2 }></Grid>
+			
+			<Grid item xs={ 10 } sm={ 8 }>
+				<Grid
+					container
+					alignItems="center"
+					justify="center"
+					direction="row"
+					className={ classes.root }
+				>
+					{ children }
+				</Grid>
+			</Grid>
+			<Grid item xs={ 1 } sm={ 2 }></Grid>
+		</Grid>
 	)
 }
 
-export default Layout
+export default withStyles(styles)(Layout)
