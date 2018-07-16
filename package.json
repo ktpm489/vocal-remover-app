@@ -84,6 +84,7 @@
     "webpack-merge": "^4.1.2",
     "workbox-sw": "^3.3.1"
   },
+  "proxy": "http://localhost:5000",
   "repository": "https://github.com/sujinleeme/vocal-remover-app/",
   "bugs": {
     "url": "https://github.com/sujinleeme/vocal-remover-app/issues"
