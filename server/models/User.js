@@ -8,7 +8,6 @@ let UserSchema = new mongoose.Schema(
 		provider_id: String,
 		token: String,
 		provider_pic: String
-		
 	}
 )
 
